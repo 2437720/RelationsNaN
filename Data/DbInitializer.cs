@@ -37,10 +37,46 @@ namespace RelationsNaN.Data
                     ReleaseYear = 2016,
                     Image = "https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/XCOM_2_cover_art.jpg/220px-XCOM_2_cover_art.jpg"
                 };
+
+
                 await _context.Game.AddAsync(game3);
+
+
+
+                await _context.SaveChangesAsync();
+
+
+            }
+
+            if (_context.Platforms.Count() == 0)
+            {
+                Platform ps5 = new Platform()
+                {
+                    Name = "PS4"
+                };
+                await _context.Platforms.AddAsync(ps5);
+
+                Platform xbox360 = new Platform()
+                {
+                    Name = "Xbox One"
+                };
+                await _context.Platforms.AddAsync(xbox360);
+
+                Platform n64 = new Platform()
+                {
+                    Name = "Switch"
+                };
+                await _context.Platforms.AddAsync(n64);
+
+                Platform pc = new Platform()
+                {
+                    Name = "PC"
+                };
+                await _context.Platforms.AddAsync(pc);
 
                 await _context.SaveChangesAsync();
             }
         }
     }
+    
 }
